@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sed -i '/^$/d' tasklist.txt
+shuf tasklist.txt > tasklist_shuf.txt
+mv tasklist_shuf.txt tasklist.txt
+
+echo -n "done: "
+cat doing.txt
+
+date "+%Y/%m/%d %H:%M " | tr -d "\n" | tr -d "\r" >> "done.txt"
+cat doing.txt >> "done.txt"
+
+if [ ! -s 'tasklist.txt' ]; then
+	echo '    You have done all the task lists!'
+	echo '    refleshing...'
+	./reflesh
+fi
+
+head -n 1 tasklist.txt > doing.txt
+sed -i '1d' tasklist.txt
+
+echo -n 'next task is: '
+cat doing.txt
+
+echo -n "added: remain = "
+cat tasklist.txt | wc -l
+

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+cat 1_study.txt     >> tasklist.txt
+echo -n '    added from study: '
+cat 1_study.txt | wc -l
+
+cat 2_work.txt      >> tasklist.txt
+echo -n '    added from work: '
+cat 2_work.txt | wc -l
+
+cat 3_research.txt  >> tasklist.txt
+echo -n '    added from research: '
+cat 3_research.txt | wc -l
+
+cat 4_implement.txt >> tasklist.txt
+echo -n '    added from implement: '
+cat 4_implement.txt | wc -l
+
+cat 5_life.txt      >> tasklist.txt
+echo -n '    added from life: '
+cat 5_life.txt | wc -l
+
+sed -i '/^$/d' tasklist.txt
+shuf tasklist.txt > tasklist_shuf.txt
+mv tasklist_shuf.txt tasklist.txt
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo -n "info: remain = "
+cat tasklist.txt | wc -l
+
+echo '--------'
+
+cat tasklist.txt
+
+
+
