@@ -12,8 +12,8 @@ cat doing.txt >> "done.txt"
 
 if [ ! -s 'tasklist.txt' ]; then
 	echo '    You have done all the task lists!'
-	echo '    refleshing...'
-	./reflesh
+	echo '    refreshing...'
+	./refresh
 fi
 
 head -n 1 tasklist.txt > doing.txt
